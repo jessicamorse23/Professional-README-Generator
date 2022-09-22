@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs')
+const generateMarkdown = require('./generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 // const questions = [];   ``
@@ -42,7 +43,7 @@ inquirer
         {
             type: 'list',
             message: 'Choose a license for your project',
-            choices: ['MIT', 'Apache 2.0', 'GPL 3.0'],
+            choices: ['Apache 2.0 License', 'BSD 2-Clause License', 'The MIT License', 'The Unilicense'],
             name: 'license',
         },
 
@@ -58,6 +59,12 @@ inquirer
             name: 'email',
         },
     ])
+    
+    .then(({answers}) => 
+        fs.writeFile('README.md', generateMarkdown(answers), (err) =>
+        err ? console.log(err) : console.log("works")
+        )
+    );
 
     // .then(({name,bio}) =>
     //     fs.writeFile('index.html', createHtml(name, bio), (err) =>
@@ -66,32 +73,19 @@ inquirer
     // );
 
 // TODO: Create a function to write README file
-    .then((answers) => {
-    JSON.stringify(answers)
-    fs.writeFileSync('generateREADME.md', generateREADME(answers))
-    console.log('README here');
-})
+//     .then((answers) => {
+//     JSON.stringify(answers)
+//     fs.writeFileSync('generateREADME.md', generateREADME(answers))
+//     console.log('README here');
+// })
 
-.catch((err) => console.error(err));
+// .catch((err) => console.error(err));
+
+
 
 // TODO: Create a function to initialize app
 // function init() {}
-const generateREADME = ({ title, description, installation, useage, contributing, tests, license, GitHubUsername, email  }) => {
-    return `
-    <div id="top"></div>
-    # ${title}
-    ## Table of Contents
-    *[Project Description](#description)
-    *[Installation Instructions](#installation)
-    *[Usage](#useage)
-    *[License](#license)
-    *[Contribution Guidelines](#contributing)
-    *[Testing](#tests)
-    *[Questions](#questions)
 
-    ## Description
-    `
-}
 
 // Function call to initialize app
-init();
+// init();
