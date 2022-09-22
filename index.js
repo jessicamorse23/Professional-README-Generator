@@ -43,7 +43,7 @@ inquirer
         {
             type: 'list',
             message: 'Choose a license for your project',
-            choices: ['Apache 2.0 License', 'BSD 2-Clause License', 'The MIT License', 'The Unilicense'],
+            choices: ['Apache 2.0 License', 'BSD 2-Clause License', 'The MIT License', "The Unilicense"],
             name: 'license',
         },
 
