@@ -42,7 +42,7 @@ function generateMarkdown(data) {
   *[Project Description](#description)
   *[Installation Instructions](#installation)
   *[Usage](#useage)
-  ${renderLicenseLink(data.License)}
+  *[${renderLicenseLink(data.License)}](#License)
   *[Contribution Guidelines](#contributing)
   *[Testing](#tests)
   *[Questions](#questions)
