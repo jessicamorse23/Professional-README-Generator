@@ -61,7 +61,7 @@ function generateMarkdown(data) {
   ${data.license}
   ## Questions
   - Github: ${data.Github}
-  - Email: ${data.Email}
+  - Email: ${data.email}
   `;
 }
 module.exports = generateMarkdown;
